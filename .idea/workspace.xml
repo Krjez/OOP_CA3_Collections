@@ -5,8 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="ef990e08-6fc9-4448-a316-23c97e52d3a9" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/src/main/java/HTML tags" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Question3.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Question3.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Question4.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Question4.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -49,8 +49,8 @@
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
-  <component name="RunManager">
-    <configuration name="config1" type="Application" factoryName="Application">
+  <component name="RunManager" selected="Application.configQuestion4">
+    <configuration name="configQuestion3" type="Application" factoryName="Application">
       <option name="MAIN_CLASS_NAME" value="Question3" />
       <module name="OOP_CA3_Collections" />
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/src/main/java" />
@@ -58,6 +58,18 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="configQuestion4" type="Application" factoryName="Application">
+      <option name="MAIN_CLASS_NAME" value="Question4" />
+      <module name="OOP_CA3_Collections" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/src/main/java" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <list>
+      <item itemvalue="Application.configQuestion4" />
+      <item itemvalue="Application.configQuestion3" />
+    </list>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
@@ -69,7 +81,7 @@
       <updated>1706193410257</updated>
       <workItem from="1706193411322" duration="5100000" />
       <workItem from="1706277898315" duration="8112000" />
-      <workItem from="1706796876361" duration="4436000" />
+      <workItem from="1706796876361" duration="5585000" />
     </task>
     <servers />
   </component>
