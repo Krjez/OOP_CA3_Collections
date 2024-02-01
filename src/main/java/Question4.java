@@ -1,3 +1,5 @@
+import java.io.File;
+import java.io.FileNotFoundException;
 import java.util.Stack;
 
 
@@ -9,7 +11,7 @@ import java.util.Stack;
 
 public class Question4
 {
-    public static void main(String[] args)
+    public static void main(String[] args) throws FileNotFoundException
     {
         a;
     }

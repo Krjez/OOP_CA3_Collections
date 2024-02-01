@@ -20,15 +20,20 @@ public class Question3
 
         Scanner fileInput = new Scanner(new File("Question1.java"));
 
-        while (fileInput.hasNextLine()) {
+        while (fileInput.hasNextLine())
+        {
             Scanner in = new Scanner(fileInput.nextLine()).useDelimiter("[^A-Za-z0-9_]+");
             lineNumber++;
 
-            while (in.hasNext()) {
+            while (in.hasNext())
+            {
                 token = in.next();
-                if (map.containsKey(token)) {
+                if (map.containsKey(token))
+                {
                     map.get(token).add(lineNumber);
-                } else {
+                }
+                else
+                {
                     HashSet<Integer> set = new HashSet<>();
                     set.add(lineNumber);
                     map.put(token, set);
@@ -36,7 +41,8 @@ public class Question3
             }
         }
 
-        for (String a : map.keySet()) {
+        for (String a : map.keySet())
+        {
             System.out.println("\nToken: \"" + a + "\", on lines:");
             for (int x : map.get(a)) {
                 System.out.println(x);
