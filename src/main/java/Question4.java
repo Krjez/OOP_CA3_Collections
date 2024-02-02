@@ -17,6 +17,7 @@ public class Question4
         Stack<String> tags = new Stack<>();
         String tag;
         Scanner input = new Scanner(new File("HTML tags"));
+        boolean error = false;
 
         while(input.hasNext())
         {
@@ -24,7 +25,6 @@ public class Question4
             if(tag.charAt(1) != '/')
             {
                 tags.push(tag.substring(1,tag.length()-1));
-                System.out.println(tag);
             }
             else
             {
@@ -34,9 +34,18 @@ public class Question4
                 }
                 else
                 {
-                    System.out.println("ERROR ERROR ERROR");
+                    error = true;
                 }
             }
+        }
+        if(error)
+        {
+            System.out.println("\nERROR ERROR ERROR");
+
+        }
+        else
+        {
+            System.out.println("\nEverything is properly nested.");
         }
 
     }
