@@ -15,32 +15,31 @@ public class Question5
         Queue<String> takeOffQueue = new LinkedList<>();
         Queue<String> landingQueue = new LinkedList<>();
         Scanner input = new Scanner(System.in);
-        String command = input.next();
+        String command = "";
 
         while(!command.equals("quit"))
         {
+            System.out.println("Enter your command:");
+            input = new Scanner(System.in);
+            command = input.nextLine();
+
             if(command.equals("next"))
             {
                 //TODO loads
             }
-            else if(command.equals("landing"))
+            else if(command.matches("land [A-Za-z0-9]+"))
             {
-                System.out.println("Enter the symbol of the landing flight:");
-                input = new Scanner(System.in);
-                command = input.next();
+                landingQueue.add(command.substring(5));
             }
-            else if(command.equals("takeoff"))
+            else if(command.matches("takeoff [A-Za-z0-9]+"))
             {
-                System.out.println("Enter the symbol of the flight to take off:");
-                input = new Scanner(System.in);
-                command = input.next();
+                takeOffQueue.add(command.substring(8));
             }
 
-            
+            System.out.println(landingQueue.peek());
+            System.out.println(takeOffQueue.peek());
 
-            input = new Scanner(System.in);
-            command = input.next();
         }
-
+        System.out.println("Goodbye");
     }
 }
