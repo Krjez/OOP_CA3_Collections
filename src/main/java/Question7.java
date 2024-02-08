@@ -1,4 +1,5 @@
 import java.util.LinkedList;
+import java.util.TreeMap;
 import java.util.Queue;
 import java.util.Scanner;
 
@@ -12,8 +13,7 @@ public class Question7
 {
     public static void main(String[] args)
     {
-        Queue<Block> stocks = new LinkedList<>();
-
+        TreeMap<String,Queue<Block>> symbolsMap = new TreeMap<>();
         Scanner input;
         String command = "";
 
@@ -27,32 +27,42 @@ public class Question7
             {
                 case "buy" ->
                 {
+                    String symbol = input.next();
                     int quantity = input.nextInt();
                     double price = input.nextDouble();
-                    stocks.add(new Block(quantity, price));
+                    if(symbolsMap.containsKey(symbol))
+                    {
+                        symbolsMap.get(symbol).add(new Block(quantity, price));
+                    }
+                    else
+                    {
+                        symbolsMap.put(symbol, new LinkedList<>());
+                        symbolsMap.get(symbol).add(new Block(quantity, price));
+                    }
                 }
                 case "sell" ->
                 {
+                    String symbol = input.next();
                     int quantity = input.nextInt();
                     double price = input.nextDouble();
                     double profit = 0;
                     while(quantity > 0)
                     {
-                        if(stocks.isEmpty())
+                        if(symbolsMap.get(symbol).isEmpty())
                         {
-                            System.out.println("Not enough stock to sell all. Sold all available.");
+                            System.out.println("Not enough stock here to sell all. Sold all available.");
                             quantity = 0;
                         }
-                        else if(quantity > stocks.peek().quantity)
+                        else if(quantity > symbolsMap.get(symbol).peek().quantity)
                         {
-                            profit += stocks.peek().quantity * (price - stocks.peek().price);
-                            quantity -= stocks.peek().quantity;
-                            stocks.remove();
+                            profit += symbolsMap.get(symbol).peek().quantity * (price - symbolsMap.get(symbol).peek().price);
+                            quantity -= symbolsMap.get(symbol).peek().quantity;
+                            symbolsMap.get(symbol).remove();
                         }
                         else
                         {
-                            profit += quantity * (price - stocks.peek().price);
-                            stocks.peek().quantity -= quantity;
+                            profit += quantity * (price - symbolsMap.get(symbol).peek().price);
+                            symbolsMap.get(symbol).peek().quantity -= quantity;
                             quantity = 0;
                         }
                     }
