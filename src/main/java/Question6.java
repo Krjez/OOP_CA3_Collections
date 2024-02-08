@@ -17,21 +17,44 @@ public class Question6
             input = new Scanner(System.in);
             command = input.next();
 
-            switch (command) {
-                case "buy" -> {
+            switch (command)
+            {
+                case "buy" ->
+                {
                     int quantity = input.nextInt();
                     double price = input.nextDouble();
                     stocks.add(new Block(quantity, price));
                 }
-                case "sell" -> {
+                case "sell" ->
+                {
                     int quantity = input.nextInt();
                     double price = input.nextDouble();
-
+                    double profit = 0;
+                    while(quantity > 0)
+                    {
+                        if(stocks.isEmpty())
+                        {
+                            System.out.println("Not enough stock to sell all. Sold all available.");
+                            quantity = 0;
+                        }
+                        else if(quantity > stocks.peek().quantity)
+                        {
+                            profit += stocks.peek().quantity * (price - stocks.peek().price);
+                            quantity -= stocks.peek().quantity;
+                            stocks.remove();
+                        }
+                        else
+                        {
+                            profit += quantity * (price - stocks.peek().price);
+                            stocks.peek().quantity -= quantity;
+                            quantity = 0;
+                        }
+                    }
+                    System.out.println("The total profit from this transaction was: " + profit);
                 }
                 case "quit" -> System.out.println("Goodbye");
                 default -> System.out.println("Invalid input, try again.");
             }
-
         }
     }
 }
