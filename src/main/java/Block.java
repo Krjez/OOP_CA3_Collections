@@ -1,10 +1,18 @@
 public class Block
 {
+    int quantity;
     double price;
-    double quantity;
-    public Block(double price, double quantity)
+    public Block(int quantity, double price)
     {
+        this.quantity = quantity;
         this.price = price;
+    }
+    public int getQuantity()
+    {
+        return quantity;
+    }
+    public void setQuantity(int quantity)
+    {
         this.quantity = quantity;
     }
     public double getPrice()
@@ -14,13 +22,5 @@ public class Block
     public void setPrice(double price)
     {
         this.price = price;
-    }
-    public double getQuantity()
-    {
-        return quantity;
-    }
-    public void setQuantity(double quantity)
-    {
-        this.quantity = quantity;
     }
 }
