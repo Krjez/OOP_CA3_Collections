@@ -8,7 +8,7 @@ import java.util.Scanner;
  * 8.2.2024
  */
 
-public class Question6
+public class Question7
 {
     public static void main(String[] args)
     {
