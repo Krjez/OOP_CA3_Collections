@@ -15,15 +15,14 @@ public class Question8
         Stack<Double> numbers = new Stack<>();
         Stack<String> operators = new Stack<>();
 
-        System.out.println("Please separate your input numbers and operators by either space or new lines(enter).");
-        System.out.println("Use keyword 'end' to evaluate");
+        System.out.println("\nPlease separate your input numbers, operators and brackets by new lines(enter).");
+        System.out.println("Use keyword 'e' or 'E' to evaluate and end");
         System.out.println("Start writing in your equation to be evaluated:");
-        String equation = input.next();
+        String equation = "";
 
-        while(!equation.equals("end"))
+        while(!equation.equalsIgnoreCase("e"))
         {
-            //input = new Scanner(System.in);
-            equation = input.next();
+            equation = input.nextLine();
 
             if(equation.matches("[0-9]+\\.*[0-9]*"))
             {
@@ -35,9 +34,12 @@ public class Question8
             }
             else if(equation.equals("+") || equation.equals("-"))
             {
-                while(operators.peek().equals("*") || operators.peek().equals("/"))
+                if(!operators.isEmpty())
                 {
-                    evaluateTheTop(numbers, operators);
+                    while(operators.peek().equals("*") || operators.peek().equals("/"))
+                    {
+                        evaluateTheTop(numbers, operators);
+                    }
                 }
                 operators.push(equation);
             }
@@ -53,17 +55,18 @@ public class Question8
                 }
                 operators.pop();
             }
-            else
+            else if(!equation.equalsIgnoreCase("e"))
             {
                 System.out.println("Wrong input");
             }
         }
+
         while(!operators.isEmpty())
         {
             evaluateTheTop(numbers, operators);
         }
-        System.out.println();
-        System.out.println();
+        System.out.println("The result of the equation is:");
+        System.out.println(numbers.pop());
     }
     public static void evaluateTheTop(Stack<Double> numbers, Stack<String> operators)
     {
@@ -82,7 +85,8 @@ public class Question8
         }
         else if(op.equals("/"))
         {
-            numbers.push(numbers.pop() / numbers.pop());
+            double num = numbers.pop();
+            numbers.push(numbers.pop() / num);
         }
     }
 }
