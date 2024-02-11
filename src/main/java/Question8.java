@@ -39,6 +39,10 @@ public class Question8
                     while(operators.peek().equals("*") || operators.peek().equals("/"))
                     {
                         evaluateTheTop(numbers, operators);
+                        if(operators.isEmpty())
+                        {
+                            break;
+                        }
                     }
                 }
                 operators.push(equation);
@@ -77,7 +81,8 @@ public class Question8
         }
         else if(op.equals("-"))
         {
-            numbers.push(numbers.pop() - numbers.pop());
+            double num = numbers.pop();
+            numbers.push(numbers.pop() - num);
         }
         else if(op.equals("*"))
         {
